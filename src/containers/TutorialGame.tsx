@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Board from '../components/Board';
+import Information from '../components/Information';
 
 interface TutorialGameProps {
   store: {
@@ -41,6 +42,7 @@ class TutorialGame extends React.Component<TutorialGameProps, TutorialGameState>
           squares={this.props.store.squares}
           squareClick={this.clickSquare.bind(this)}
         />
+        <Information text={this.state.winner} />
       </div>
     );
   }

@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import TutorialGame from './containers/TutorialGame';
 import store from './store';
 
-
 class App extends React.Component {
   render() {
     return (
