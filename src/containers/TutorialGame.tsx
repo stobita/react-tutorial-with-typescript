@@ -3,25 +3,34 @@ import Board from '../components/Board';
 
 interface TutorialGameProps {
   store: {
-    value: string;
-    squares: string[][]
+    value: string,
+    squares: string[][],
+    isFirst: boolean,
   };
 }
 
-class TutorialGame extends React.Component<TutorialGameProps>{
+interface TutorialGameState {
+  value: string;
+  squares: string[][];
+  isFirst: boolean;
+}
+
+class TutorialGame extends React.Component<TutorialGameProps, TutorialGameState>{
   constructor(props: TutorialGameProps) {
     super(props);
     this.state = this.props.store;
   }
+  // マスがクリックされたとき
   clickSquare(row: number,col: number) {
+    const nowPlayer = this.state.isFirst ? '◯' : '×';
+    const newArray = this.props.store.squares.slice();
+    newArray[row][col] = nowPlayer;
     this.setState({
-      store: {
-        square: this.props.store.squares[row][col] = '◯',
-      },
+      squares: newArray,
+      isFirst: !this.state.isFirst,
     });
   }
   render() {
-    console.log(this.props.store.squares);
     return (
       <div className="contents">
         <h1>{this.props.store.value}</h1>
