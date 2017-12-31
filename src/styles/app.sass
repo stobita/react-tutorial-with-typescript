@@ -1,2 +1,22 @@
-body
-  background: #333
+body,div,h1,ul,li
+  margin: 0
+  padding: 0
+
+.contents
+  text-align: center
+  .board
+    .board-row
+      height: 34px
+      .square
+        display: inline-block
+        background: #333
+        color: #fff
+        height: 32px
+        width: 32px
+        margin: 1px 1px
+        cursor: pointer
+        &:hover
+          background: #26dee9
+        span
+          vertical-align: middle
+          line-height: 32px

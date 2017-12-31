@@ -13,11 +13,22 @@ class TutorialGame extends React.Component<TutorialGameProps>{
     super(props);
     this.state = this.props.store;
   }
+  clickSquare(row: number,col: number) {
+    this.setState({
+      store: {
+        square: this.props.store.squares[row][col] = '◯',
+      },
+    });
+  }
   render() {
+    console.log(this.props.store.squares);
     return (
-      <div>
+      <div className="contents">
         <h1>{this.props.store.value}</h1>
-        <Board squares={this.props.store.squares}/>
+        <Board
+          squares={this.props.store.squares}
+          squareClick={this.clickSquare.bind(this)}
+        />
       </div>
     );
   }

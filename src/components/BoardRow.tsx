@@ -3,13 +3,23 @@ import Square from './Square';
 
 interface BoardRowProps{
   rowLine: string[];
+  squareClick(): void;
+  rowPosition: number;
 }
 
 const boardRow = (props: BoardRowProps) => {
   return (
-    <div className="boardRow">
+    <div className="board-row">
       {props.rowLine.map((value, index) => {
-        return <Square squareValue={value}/>;
+        return (
+          <Square
+            key={index}
+            squareValue={value}
+            squareClick={props.squareClick}
+            rowPosition={props.rowPosition}
+            colPosition={index}
+          />
+        );
       })}
     </div>
   );
